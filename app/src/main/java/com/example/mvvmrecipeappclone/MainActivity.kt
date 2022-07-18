@@ -11,6 +11,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -43,13 +44,16 @@ fun ColumnLayoutCompose() {
         modifier = Modifier
             .fillMaxWidth()
             .background(Color.Gray)
+            .padding(0.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
             painter = painterResource(
                 id = R.drawable.happy_meal_small
             ),
             contentDescription = "",
-            contentScale = ContentScale.Fit
+            contentScale = ContentScale.Fit,
+            modifier = Modifier.fillMaxWidth()
         )
         Column(
             modifier = Modifier.padding(16.dp),
