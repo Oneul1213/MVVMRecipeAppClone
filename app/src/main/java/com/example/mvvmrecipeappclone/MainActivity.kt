@@ -43,17 +43,15 @@ fun ColumnLayoutCompose() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color.Gray)
-            .padding(0.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(0.dp)
     ) {
         Image(
             painter = painterResource(
                 id = R.drawable.happy_meal_small
             ),
             contentDescription = "",
-            contentScale = ContentScale.Fit,
-            modifier = Modifier.fillMaxWidth()
+            contentScale = ContentScale.Crop,
+            modifier = Modifier.height(300.dp)
         )
         Column(
             modifier = Modifier.padding(16.dp),
