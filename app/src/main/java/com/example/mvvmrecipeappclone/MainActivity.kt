@@ -3,11 +3,8 @@ package com.example.mvvmrecipeappclone
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -37,12 +34,43 @@ class MainActivity : ComponentActivity() {
 //                ) {
 //                    Greeting("Android")
 //                }
-                ColumnLayoutCompose()
+//                ColumnLayoutCompose()
+                RowLayoutCompose()
             }
         }
     }
 }
 
+@Composable
+fun RowLayoutCompose() {
+    Column {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+                .border(border = BorderStroke(width = 1.dp, color = Color.Black))
+        ) {
+            Text(
+                text = "ITEM1",
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
+        }
+
+        Spacer(modifier = Modifier.padding(20.dp))
+
+        Row(
+            modifier = Modifier
+                .width(200.dp)
+                .height(200.dp)
+                .border(border = BorderStroke(width = 1.dp, color = Color.Black))
+        ) {
+            Text(
+                text = "ITEM2",
+                modifier = Modifier.align(Alignment.CenterVertically)
+            )
+        }
+    }
+}
 @Composable
 fun ColumnLayoutCompose() {
     Column(
@@ -58,7 +86,9 @@ fun ColumnLayoutCompose() {
             ),
             contentDescription = "",
             contentScale = ContentScale.Crop,
-            modifier = Modifier.height(300.dp).fillMaxWidth()
+            modifier = Modifier
+                .height(300.dp)
+                .fillMaxWidth()
         )
         Column(
             modifier = Modifier.padding(16.dp),
@@ -92,6 +122,7 @@ fun ColumnLayoutCompose() {
 @Composable
 fun DefaultPreview() {
     MVVMRecipeAppCloneTheme {
-        ColumnLayoutCompose()
+//        ColumnLayoutCompose()
+        RowLayoutCompose()
     }
 }
