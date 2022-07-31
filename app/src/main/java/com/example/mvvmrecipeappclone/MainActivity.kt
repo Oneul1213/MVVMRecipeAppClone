@@ -34,8 +34,8 @@ class MainActivity : ComponentActivity() {
 //                ) {
 //                    Greeting("Android")
 //                }
-//                ColumnLayoutCompose()
-                RowLayoutCompose()
+                HappyMealLayoutCompose()
+//                RowLayoutCompose()
             }
         }
     }
@@ -48,10 +48,15 @@ fun RowLayoutCompose() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
-                .border(border = BorderStroke(width = 1.dp, color = Color.Black))
+                .border(border = BorderStroke(width = 1.dp, color = Color.Black)),
+            verticalArrangement = Arrangement.Center
         ) {
             Text(
                 text = "ITEM1",
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
+            Text(
+                text = "ITEM2",
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
         }
@@ -62,7 +67,8 @@ fun RowLayoutCompose() {
             modifier = Modifier
                 .width(200.dp)
                 .height(200.dp)
-                .border(border = BorderStroke(width = 1.dp, color = Color.Black))
+                .border(border = BorderStroke(width = 1.dp, color = Color.Black)),
+            horizontalArrangement = Arrangement.Center
         ) {
             Text(
                 text = "ITEM2",
@@ -72,12 +78,12 @@ fun RowLayoutCompose() {
     }
 }
 @Composable
-fun ColumnLayoutCompose() {
+fun HappyMealLayoutCompose() {
     Column(
         modifier = Modifier
             .background(color = Color(0xFFF2F2F2))
             .fillMaxSize()
-            .padding(0.dp)
+//            .padding(0.dp)
             .verticalScroll(rememberScrollState())
     ) {
         Image(
@@ -93,12 +99,25 @@ fun ColumnLayoutCompose() {
         Column(
             modifier = Modifier.padding(16.dp),
         ) {
-            Text(
-                text = "Happy Meal",
-                style = TextStyle(
-                    fontSize = 26.sp
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = "Happy Meal",
+                    style = TextStyle(
+                        fontSize = 26.sp
+                    )
                 )
-            )
+                Text(
+                    text = "$5.99",
+                    style = TextStyle(
+                        color = Color(0xFF85bb65),
+                        fontSize = 17.sp
+                    ),
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                )
+            }
             Spacer(modifier = Modifier.padding(top = 10.dp))
             Text(
                 text = "800 Calories",
@@ -107,13 +126,12 @@ fun ColumnLayoutCompose() {
                 )
             )
             Spacer(modifier = Modifier.padding(top = 10.dp))
-            Text(
-                text = "$5.99",
-                style = TextStyle(
-                    color = Color(0xFF85bb65),
-                    fontSize = 17.sp
-                )
-            )
+            Button(
+                onClick = {},
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            ) {
+                Text(text = "ORDER NOW")
+            }
         }
     }
 
@@ -122,7 +140,7 @@ fun ColumnLayoutCompose() {
 @Composable
 fun DefaultPreview() {
     MVVMRecipeAppCloneTheme {
-//        ColumnLayoutCompose()
-        RowLayoutCompose()
+        HappyMealLayoutCompose()
+//        RowLayoutCompose()
     }
 }
