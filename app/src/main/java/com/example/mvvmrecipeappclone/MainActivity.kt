@@ -136,11 +136,11 @@ fun HappyMealLayoutCompose() {
     }
 
 }
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MVVMRecipeAppCloneTheme {
-        HappyMealLayoutCompose()
-//        RowLayoutCompose()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun DefaultPreview() {
+//    MVVMRecipeAppCloneTheme {
+//        HappyMealLayoutCompose()
+////        RowLayoutCompose()
+//    }
+//}
