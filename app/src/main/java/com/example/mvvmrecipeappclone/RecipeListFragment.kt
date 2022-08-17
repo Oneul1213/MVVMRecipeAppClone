@@ -14,13 +14,11 @@ class RecipeListFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = ComposeView(requireContext())
-        view.apply {
+    ): View {
+        return ComposeView(requireContext()).apply {
             setContent {
-                Text("Hey look a composable")
+                Text(text = "Recipe List Fragment")
             }
         }
-        return view
     }
 }
